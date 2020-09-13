@@ -28,14 +28,10 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
+        cell.backgroundColor = .blue
+        cell.pointsLabel.textColor = .yellow
+        
         animateShift(cell: cell)
-        
-        UIView.transition(with: cell.pointsLabel, duration: 0.25, options: .transitionFlipFromTop, animations: {
-            cell.backgroundColor = .blue
-            cell.pointsLabel.textColor = .yellow
-        },
-        completion: nil)
-        
         cell.setup(cellNumber: indexPath.row)
         
         if squaresContent[indexPath.row] != 0 {
